@@ -45,3 +45,11 @@ body {
 .dataTables_wrapper .dataTables_scrollBody td {
   text-align: center;
 }
+.dataTables_wrapper .DTFC_LeftBodyWrapper td,
+.dataTables_wrapper .dataTables_scrollHeadInner th {
+  cursor: pointer;
+}
+.dataTables_wrapper .DTFC_LeftBodyWrapper td:hover,
+.dataTables_wrapper .dataTables_scrollHeadInner th:hover {
+  background: #ccc;
+}
