@@ -70,9 +70,6 @@ $(function () {
         bDeferRender: true,
         oScroller: {
             rowHeight: 29
-        },
-        fnInitComplete: function () {
-
         }
     });
 
