@@ -14,47 +14,48 @@ $(function () {
         dataTable.fnDraw();
     };
 
+    var assignScrollHandlers = function () {
+        var $scrollBody = $('.dataTables_scrollBody');
+
+        $('.DTFC_LeftBodyWrapper td, .dataTables_scrollHeadInner th').on('click', function (e) {
+
+            var $target = $(e.target).closest('td,th'),
+                axis = $target.is('td') ? 'x' : 'y',
+                $parent = $target.parent(), // the row
+                index,
+                $tds,
+                $scroll = null;
+
+            if (axis === 'x') {
+                // index of the row within the tbody
+                index = $parent.parent().find('tr').index($parent);
+                // All tds in that row
+                $tds = $scrollBody.find('tr:nth-child(' + (index + 1) + ')').find('td');
+            } else {
+                // index of the th within the header row
+                index = $parent.find('th').index($target);
+                // All tds in this column
+                $tds = $scrollBody.find('td:nth-child(' + (index + 1) + ')');
+            }
+
+            for (var i = 0, m = $tds.length; i < m; i++) {
+                if ($tds.eq(i).find('span').length) {
+                    $scroll = $tds.eq(i);
+                    break;
+                }
+            }
+
+            if ($scroll) {
+                $scrollBody.scrollTo( $scroll, { duration:500, axis: axis});
+            }
+        });
+    };
+
     var onFirstDraw = _.once(function () {
         $('.loading').hide();
         $('.table-container').addClass('show-table');
         onResize();
-
-        $('.DTFC_LeftBodyWrapper td').on('click', function (e) {
-            var $target = $(e.target),
-                $row = $target.parent(),
-                index = $row.parent().find('tr').index($row),
-                $tds = $('.dataTables_scrollBody tr:nth-child(' + (index + 1) + ')').find('td'),
-                $scroll = null;
-
-            for (var i = 0, m = $tds.length; i < m; i++) {
-                if ($tds.eq(i).find('span').length) {
-                    $scroll = $tds.eq(i);
-                    break;
-                }
-            }
-
-            if ($scroll) {
-                $('.dataTables_scrollBody').scrollTo( $scroll, { duration:500, axis: 'x'});
-            }
-        });
-
-        $('.dataTables_scrollHeadInner th').on('click', function (e) {
-            var $target = $(e.target),
-                index = $target.parent().find('th').index($target),
-                $tds = $('.dataTables_scrollBody td:nth-child(' + (index + 1) + ')'),
-                $scroll = null;
-
-            for (var i = 0, m = $tds.length; i < m; i++) {
-                if ($tds.eq(i).find('span').length) {
-                    $scroll = $tds.eq(i);
-                    break;
-                }
-            }
-
-            if ($scroll) {
-                $('.dataTables_scrollBody').scrollTo( $scroll, { duration:500, axis: 'y'});
-            }
-        });
+        assignScrollHandlers();
     });
 
     dataTable = $('.avails-table').dataTable({
