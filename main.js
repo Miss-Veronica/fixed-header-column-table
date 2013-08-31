@@ -15,7 +15,10 @@ $(function () {
     };
 
     var assignScrollHandlers = function () {
-        var $scrollBody = $('.dataTables_scrollBody');
+        var $table = $('#DataTables_Table_0_wrapper'),
+            $scrollBody = $('.dataTables_scrollBody'),
+            $scrollHeader = $('.dataTables_scrollHead'),
+            $scrollColumn = $('.DTFC_LeftBodyWrapper');
 
         $('.DTFC_LeftBodyWrapper td, .dataTables_scrollHeadInner th').on('click', function (e) {
 
@@ -48,6 +51,61 @@ $(function () {
             if ($scroll) {
                 $scrollBody.scrollTo( $scroll, { duration:500, axis: axis});
             }
+        });
+
+        $scrollBody.find('td').on('mouseenter mouseleave', function (e) {
+            if (e.type === 'mouseleave') {
+                $table.find('.highlighted').removeClass('highlighted');
+                return;
+            }
+            
+            var $target = $(e.target).closest('td'),
+                $parent = $target.parent(), // the row
+                index,
+                $rowtds, $coltds;
+
+            // index of the row within the tbody
+            index = $parent.parent().find('tr').index($parent);
+            // All tds in that row
+            $rowtds = $scrollBody.find('tr:nth-child(' + (index + 1) + ') td');
+            $rowtds = $rowtds.add($scrollColumn.find('tr:nth-child(' + (index + 1) + ') td'));
+
+            // index of the th within the header row
+            index = $parent.find('td').index($target);
+            // All tds in this column
+            $coltds = $scrollBody.find('td:nth-child(' + (index + 1) + ')');
+            $coltds = $coltds.add($scrollHeader.find('th:nth-child(' + (index + 1) + ')'));
+
+            $rowtds.add($coltds).addClass('highlighted');
+        });
+
+        $('.DTFC_LeftBodyWrapper td, .dataTables_scrollHeadInner th').on('mouseenter mouseleave', function (e) {
+
+            if (e.type === 'mouseleave') {
+                $scrollBody.find('td.highlighted').removeClass('highlighted');
+                return;
+            }
+
+            var $target = $(e.target).closest('td,th'),
+                axis = $target.is('td') ? 'x' : 'y',
+                $parent = $target.parent(), // the row
+                index,
+                $tds,
+                $scroll = null;
+
+            if (axis === 'x') {
+                // index of the row within the tbody
+                index = $parent.parent().find('tr').index($parent);
+                // All tds in that row
+                $tds = $scrollBody.find('tr:nth-child(' + (index + 1) + ')').find('td');
+            } else {
+                // index of the th within the header row
+                index = $parent.find('th').index($target);
+                // All tds in this column
+                $tds = $scrollBody.find('td:nth-child(' + (index + 1) + ')');
+            }
+
+            $tds.addClass('highlighted');
         });
     };
 

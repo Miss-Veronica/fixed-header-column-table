@@ -21,8 +21,11 @@ body {
 }
 
 .dataTables_wrapper {
-    .highlighted {
+    td.highlighted {
       background: #d9edf7;
+    }
+    th.highlighted, .DTFC_LeftBodyWrapper td.highlighted {
+      background: #ccc;
     }
     border: 1px solid @tableBorder;
     th, td {border-radius: 0px !important;}
