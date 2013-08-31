@@ -57,3 +57,6 @@ body {
 .dataTables_wrapper .dataTables_scrollHeadInner th:hover {
   background: #ccc;
 }
+.dataTables_wrapper .dataTables_scrollBody > * {
+  -webkit-transform: translateZ(0px);
+}
