@@ -15,7 +15,7 @@
     "url": "https://github.com/lukekarrys/fixed-header-column-table.git"
   },
   "scripts": {
-    "build": "jade -P {demo,simple}.jade"
+    "build": "jade -P {demo,example}.jade"
   },
   "dependencies": {
     "jade": "^1.5.0"

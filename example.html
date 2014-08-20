@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/jquery-migrate-1.2.1.min.js"></script>
+    <script src="libs/jquery.scrollTo.js"></script>
+    <script src="libs/jquery.dataTables.js"></script>
+    <script src="libs/dataTables.scroller.js"></script>
+    <script src="libs/FixedColumns.js"></script>
+    <script src="main.js"></script>
+  </head>
+</html>
+<body>
+  <div class="container avails-grid">
+    <p class="loading alert">Loading table...</p>
+    <div class="table-container">
+      <table cellpadding="0" cellspacing="0" border="0" class="table table-condensed avails-table table-bordered">
+        <thead>
+          <tr>
+            <!-- One empty th-->
+            <th>&nbsp;</th>
+            <!-- Add other th columns here-->
+            <th>Col 1</th>
+            <th>Col 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Add all the rows!-->
+          <tr>
+            <!-- The first td of each row will be fixed-->
+            <td>Fixed</td>
+            <!-- Add the rest of your cells for each row-->
+            <td>1</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
