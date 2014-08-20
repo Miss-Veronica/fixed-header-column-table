@@ -1,0 +1,23 @@
+{
+  "name": "fixed-table",
+  "description": "Uses [jQuery datatables](https://datatables.net/) to make a responsive datatable with a fixed header and a fixed column.",
+  "version": "0.0.0",
+  "author": "Luke Karrys",
+  "bugs": {
+    "url": "https://github.com/lukekarrys/fixed-header-column-table/issues"
+  },
+  "homepage": "https://github.com/lukekarrys/fixed-header-column-table",
+  "license": "MIT",
+  "main": "main.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukekarrys/fixed-header-column-table.git"
+  },
+  "scripts": {
+    "build": "jade -P {demo,simple}.jade"
+  },
+  "dependencies": {
+    "jade": "^1.5.0"
+  }
+}

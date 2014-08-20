@@ -1,5 +1,16 @@
 $(function () {
 
+    var once = function (func) {
+        var ran = false, memo;
+        return function() {
+            if (ran) return memo;
+            ran = true;
+            memo = func.apply(this, arguments);
+            func = null;
+            return memo;
+        };
+    };
+
     var dataTable;
 
     var tableHeight = function () {
@@ -54,7 +65,7 @@ $(function () {
         });
     };
 
-    var onFirstDraw = _.once(function () {
+    var onFirstDraw = once(function () {
         $('.loading').hide();
         $('.table-container').addClass('show-table');
         onResize();

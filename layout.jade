@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    meta(name="viewport", content="width=device-width,initial-scale=1.0,maximum-scale=1.0")
+    link(rel='stylesheet', href="css/bootstrap.css")
+    link(rel='stylesheet', href="css/bootstrap-responsive.css")
+    link(rel='stylesheet', href="styles.css")
+    script(src="libs/jquery.min.js")
+    script(src="libs/jquery-migrate-1.2.1.min.js")
+    script(src="libs/jquery.scrollTo.js")
+    script(src="libs/jquery.dataTables.js")
+    script(src="libs/dataTables.scroller.js")
+    script(src="libs/FixedColumns.js")
+    script(src="main.js")
+
+block vars
+
+body
+  .container.avails-grid
+    p.loading.alert Loading table...
+    .table-container
+      table.table.table-condensed.avails-table(cellpadding="0", cellspacing="0", border="0", class="table-bordered")
+        thead
+            block thead
+         tbody
+            block tbody
