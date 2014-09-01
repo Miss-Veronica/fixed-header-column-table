@@ -72,7 +72,7 @@ $(function () {
         assignScrollHandlers();
     });
 
-    dataTable = $('.avails-table').dataTable({
+    dataTable = $('table').dataTable({
         sDom: 'frtiS',
         sScrollY: tableHeight(),
         sScrollX: '100%',
