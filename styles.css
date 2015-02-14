@@ -4,12 +4,6 @@
 body {
   padding: 0 !important;
 }
-.table-container {
-  visibility: hidden;
-}
-.table-container.show-table {
-  visibility: visible;
-}
 .line2 {
   font-size: 0.8em;
   font-weight: normal;
@@ -52,10 +46,6 @@ body {
 .dataTables_wrapper .DTFC_LeftBodyWrapper td,
 .dataTables_wrapper .dataTables_scrollHeadInner th {
   cursor: pointer;
-}
-.dataTables_wrapper .DTFC_LeftBodyWrapper td:hover,
-.dataTables_wrapper .dataTables_scrollHeadInner th:hover {
-  background: #ccc;
 }
 .dataTables_wrapper .dataTables_scrollBody > * {
   -webkit-transform: translateZ(0px);
