@@ -1,5 +1,7 @@
 # Fixed header and column datatables
 
+#### This project is deprectated.
+
 ### Should I use this?
 
 This is from **November 2013** and I dont think it should be used anymore. This gist
