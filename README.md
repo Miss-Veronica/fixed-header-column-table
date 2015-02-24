@@ -14,7 +14,7 @@ It worked but was very slow, I'd recommend going to jQuery datatables
 [download](http://www.datatables.net/download/index) and [examples](http://www.datatables.net/examples/index)
 pages to see if there are better and more recent examples of how to accomplish this.
 
-### [Demo](https://cdn.rawgit.com/lukekarrys/0b1f5121549995127585/raw/f425800b8c4ea0585850bbc054cfbca1e5fb3ec4/z.html)
+### [Demo](http://lukekarrys.github.io/fixed-header-column-table)
 
 ### What is it?
 
